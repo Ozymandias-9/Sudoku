@@ -1,0 +1,331 @@
+/*======= Imports =======*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
+
+/*======= Global Variables =======*/
+
+:root {
+    --title-color: #28496b;
+    --primary-background: #fff;
+    --primary-color: #202020;
+    --secondary-color: #c9c8ce;
+    --text-color: #3754b1;
+    --primary-rel: #5ec0f87c;
+    --secondary-rel: #accad87c;
+    --wrong: #f00;
+    --hint: #0088ff;
+    --notes: #7e7e7e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+nav, .info, .game-area{
+    position: relative;
+    padding: 1em;
+}
+
+
+/*======= Header =======*/
+
+nav .container {
+    font-size: 1.7em;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--title-color);
+}
+
+.container h1 {
+    display: inline-block;
+    width: 10em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container ul {
+    display: inline-block;
+    list-style: none;
+    width: 4em;
+}
+
+.container ul li {
+    display: inline-block;
+    margin-right: .7em;
+}
+
+/*======= Information =======*/
+
+.info .container {
+    font-size: 1.3em;
+    color: var(--secondary-color);
+}
+
+.info .points i {
+    margin-right: .5em;
+}
+
+.info .timer, .info .points {
+    width: 6em;
+}
+
+.info .timer p, .info .points p{
+    display: inline-block;
+    width: 3em;
+}
+
+.info .timer i {
+    margin: none;
+    margin-left: .5em;
+}
+
+.info .points i {
+    margin: none;
+    margin-right: .5em;
+}
+
+/*======= Game-area =======*/
+
+.game-area .container {
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+/*======= Sudoku =======*/
+
+.game {
+    position: relative;
+    width: 45em;
+    height: 45em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    overflow: hidden;
+}
+
+.square {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 1px solid var(--primary-color);
+}
+
+.item {
+    position: relative;
+    border: 1px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/*======= Usables =======*/
+
+.usable {
+    height: 45em;
+}
+
+.tools {
+    width: 30em;
+    height: 15em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.tool {
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.numbers {
+    width: 30em;
+    height: 30em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+}
+
+.number p {
+    font-size: 3em;
+    color: var(--text-color);
+}
+
+/*======= Interactive =======*/
+
+.on, .on.rel, .rec {
+    background: var(--primary-rel);
+}
+
+.rel {
+    background: var(--secondary-rel);
+}
+
+.def {
+    color: var(--primary-color);
+}
+
+.wrong {
+    color: var(--wrong);
+}
+
+.blocker {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    outline: 1px solid var(--secondary-color);
+    outline-offset: -1px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: .3s;
+}
+
+.given {
+    color: var(--hint);
+}
+
+.wn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    text-align: center;
+    color: var(--notes);
+    font-size: 17px;
+}
+
+.noteRec {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1300px){
+    .game {
+        width: 35em;
+        height: 35em;
+    }
+
+    .usable {
+        height: 30em;
+    }
+    
+    .tools {
+        width: 25em;
+        height: 15em;
+    }
+
+    .numbers {
+        width: 25em;
+        height: 25em;
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .game {
+        width: 30em;
+        height: 30em;
+    }
+
+    .usable {
+        height: 25em;
+    }
+    
+    .tools {
+        width: 20em;
+        height: 15em;
+    }
+
+    .numbers {
+        width: 20em;
+        height: 20em;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .game {
+        width: 30em;
+        height: 30em;
+        margin-bottom: 2em;
+    }
+
+    .tools {
+        width: 30em;
+        height: 7em;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .numbers {
+        width: 30em;
+        height: 7em;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .game-area .container {
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .game-area .container {
+        height: 47em;
+    }
+
+    .game {
+        width: 25em;
+        height: 25em;
+        margin-bottom: 1em;
+    }
+
+    .tools {
+        width: 25em;
+        height: 5em;
+    }
+    
+    .numbers {
+        width: 25em;
+        height: 5em;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .game {
+        width: 20em;
+        height: 25em;
+    }
+
+    .tools {
+        width: 20em;
+        height: 5em;
+    }
+    
+    .numbers {
+        width: 20em;
+        height: 5em;
+    }
+}

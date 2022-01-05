@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/d2e94dcd74.js" crossorigin="anonymous"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./sudoku.css"/>
+    <title>Sudoku</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <i class="fas fa-chevron-left"></i>
+                <h1>Sudoku<b class="given">.</b>com</h1>
+                <ul>
+                    <li><i class="fas fa-palette"></i></li>
+                    <li><i class="fas fa-cog"></i></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="info">
+            <div class="container">
+                <p>Fácil</p>
+                <div class="points"><i class="fas fa-star"></i><p>0</p></div>
+                <p>Errores: <b class="mistakes">0/3</b></p>
+                <div class="timer"><p>00:00</p><i id="stopper" class="fas fa-pause"></i></div>
+            </div>
+        </div>
+    </header>
+    <div class="game-area">
+        <div class="container">
+            <div class="game">
+                <div class="square" data-square="0">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="1">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="2">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="3">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="4">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="5">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="6">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="7">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="square" data-square="8">
+                    <div class="item" data-item="0"></div>
+                    <div class="item" data-item="1"></div>
+                    <div class="item" data-item="2"></div>
+                    <div class="item" data-item="3"></div>
+                    <div class="item" data-item="4"></div>
+                    <div class="item" data-item="5"></div>
+                    <div class="item" data-item="6"></div>
+                    <div class="item" data-item="7"></div>
+                    <div class="item" data-item="8"></div>
+                </div>
+                <div class="blocker"></div>
+            </div>
+            <div class="usable">
+                <div class="tools">
+                    <div class="tool eraser">
+                        <i class="fas fa-eraser"></i>
+                        <p>Borrar</p>
+                    </div>
+                    <div class="tool hint">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Pista</p>
+                    </div>
+                    <div class="tool undo">
+                        <i class="fas fa-undo"></i>
+                        <p>Deshacer</p>
+                    </div>
+                    <div class="tool notes">
+                        <i class="fas fa-pen"></i>
+                        <p>Notas</p>
+                    </div>
+                </div>
+                <div class="numbers">
+                    <div class="number">
+                        <p>1</p>
+                    </div>
+                    <div class="number">
+                        <p>2</p>
+                    </div>
+                    <div class="number">
+                        <p>3</p>
+                    </div>
+                    <div class="number">
+                        <p>4</p>
+                    </div>
+                    <div class="number">
+                        <p>5</p>
+                    </div>
+                    <div class="number">
+                        <p>6</p>
+                    </div>
+                    <div class="number">
+                        <p>7</p>
+                    </div>
+                    <div class="number">
+                        <p>8</p>
+                    </div>
+                    <div class="number">
+                        <p>9</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="./sudoku.js"></script>
+</body>
+</html>
